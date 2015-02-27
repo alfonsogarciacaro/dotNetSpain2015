@@ -35,7 +35,8 @@ namespace Functional {
             var res2 = await (
                 from x in fetch10("http://microsoft.github.io")
                 from y in fetch10("http://fsharp.org")
-                from z in fetch10("http://funscript.info")
+                let url = "http://funscript.info"       // Intermediate value
+                from z in fetch10(url)
                 select x + y + z
             );
 

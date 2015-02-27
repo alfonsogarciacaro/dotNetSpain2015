@@ -42,6 +42,10 @@ namespace Functional {
             return tcs.Task;
         }
 
+        public static Task<b> Select<a, b>(this Task<a> input, Func<a, b> f) {
+            return Async.Map(input, f);
+        }
+
         public static Task<c> SelectMany<a,b,c>(
             this Task<a> input, Func<a, Task<b>> f, Func<a, b, c> projection) {
 
